@@ -5,3 +5,6 @@ spring:
   profiles:
     active: @spring.profiles.active@
     include: local
+  devtools:
+    restart:
+      enabled: true #熱部署

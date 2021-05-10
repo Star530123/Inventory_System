@@ -2,9 +2,15 @@ package com.ivymon.inventory.model;
 
 import com.ivymon.inventory.constant.Const;
 import com.ivymon.inventory.constant.RtnConst;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+@ApiModel
 public class Response<T> {
+    @Schema(description = "回傳訊息編號")
     private String rtnCode;
+    @Schema(description = "回傳訊息")
     private String rtnMsg;
     private T result;
 
