@@ -1,46 +1,33 @@
 package com.ivymon.inventory.aop;
 
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ivymon.inventory.model.Request;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Aspect
 @Component
 @Order(value = 2)
 public class LogAspect {
+    private ObjectMapper objectMapper = new ObjectMapper();
+    private Logger LOG = LoggerFactory.getLogger(LogAspect.class);
 
     @Pointcut("within(@org.springframework.stereotype.Controller *)")
-    public void withinController(){}
-
-    @Pointcut("execution(* com.ivymon.inventory.controller.*.*(..))")
-    public void executionController(){}
-
-    @Autowired
-    HttpServletRequest request;
-
-    @Before("executionController()")
-    public void executionbefore(JoinPoint joinPoint){
-        System.out.println("executionbefore " + joinPoint.getSignature().getName());
+    public void withinController() {
     }
 
-    @After("executionController()")
-    public void executionafter(JoinPoint joinPoint){
-        System.out.println("executionafter " + joinPoint.getSignature().getName());
-    }
-    @Before("withinController()")
-    public void withinbefore(JoinPoint joinPoint){
-        System.out.println("withinbefore " + joinPoint.getSignature().getName());
+    @Around("withinController() && args(req, ..)")
+    public Object around(ProceedingJoinPoint joinPoint, Request<Object> req) throws Throwable {
+        LOG.debug(objectMapper.writer().withDefaultPrettyPrinter().writeValueAsString(req));
+        Object response = joinPoint.proceed();
+        LOG.debug(objectMapper.writer().withDefaultPrettyPrinter().writeValueAsString(response));
+        return response;
     }
 
-    @After("withinController()")
-    public void withinafter(JoinPoint joinPoint){
-        System.out.println("withinafter " + joinPoint.getSignature().getName());
-    }
 }
