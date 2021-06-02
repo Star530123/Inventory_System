@@ -95,4 +95,11 @@
     set NAME = #{name,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+<select id="selectAll" resultMap="BaseResultMap">
+  select *
+  from product
+
+</select>
+
+  
 </mapper>
