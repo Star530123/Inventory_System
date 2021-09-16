@@ -14,7 +14,7 @@ public interface IProductService {
 
     public String deleteProduct(Integer id);
 
-    public List<Product> representProduct();
+    public List<Product> researchProduct();
 
 
 }

@@ -32,7 +32,7 @@ public class MockProductServiceImpl implements IProductService {
     }
 
     @Override
-    public List<Product> representProduct() {
+    public List<Product> researchProduct() {
         return null;
     }
 }

@@ -4,18 +4,23 @@
 <generatorConfiguration>
     <context id="myBatis" targetRuntime="MyBatis3">
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/product?characterEncoding=utf-8"
+                        connectionURL="jdbc:mysql://localhost:3306/inventory_system?characterEncoding=utf-8"
                         userId="root"
-                        password="0000"/>
+                        password="12345677">
+                <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
 
         <javaModelGenerator targetPackage="com.ivymon.inventory.entity" targetProject="src/main/java"/>
 
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="com.ivymon.inventory.entity.mapper" targetProject="src/main/resources"/>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.ivymon.inventory.entity.mapper"
                              targetProject="src/main/java"/>
 
-        <table tableName="product" enableCountByExample="false" enableSelectByExample="false"
-               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>
+<!--        <table tableName="product" enableCountByExample="false" enableSelectByExample="false"-->
+<!--               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>-->
+        <table tableName="user" /><!--enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>-->
     </context>
 </generatorConfiguration>
+

@@ -42,7 +42,8 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public List<Product> representProduct() {
+    public List<Product> researchProduct() {
+
         return productMapper.selectAll();
     }
 

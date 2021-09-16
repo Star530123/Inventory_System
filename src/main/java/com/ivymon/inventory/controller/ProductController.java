@@ -23,13 +23,14 @@ public class ProductController {
     @Qualifier("ProductServiceImpl")
     private IProductService productService;
 
-
+//get
     @RequestMapping(value = "getProduct", method = {RequestMethod.POST})
     @ResponseBody
     @Operation(description = "測試")
     public Response<Product> test(@RequestBody Request<Integer> request) {
         return new Response<>(productService.getProduct(request.getBody()));
     }
+    // 新增
     @RequestMapping(value = "createProduct", method = {RequestMethod.POST})
     @ResponseBody
     @Operation(description = "新增")
@@ -37,23 +38,29 @@ public class ProductController {
 
         return new Response<String>(productService.createProduct(request.getBody()));
     }
+
+
+
+    //修改
     @RequestMapping(value = "updateProduct", method = {RequestMethod.POST})
     @ResponseBody
     @Operation(description = "更新")
     public Response<String> update(@RequestBody Request<Product> request){
         return new Response<String>(productService.updateProduct(request.getBody()));
     }
+    //刪除
     @RequestMapping(value = "deleteProduct", method = {RequestMethod.POST})
     @ResponseBody
     @Operation(description = "刪除")
     public void delete(@RequestBody Request<Integer> request){
         Response response =  new Response<String>(productService.deleteProduct(request.getBody()));
     }
-    @RequestMapping(value = "represent", method = {RequestMethod.POST})
+    //查詢呈現
+    @RequestMapping(value = "research", method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "呈現")
-    public Response<List<Product>> represent(){
-        return new Response<List<Product>>(productService.representProduct());
+    @Operation(description = "查詢")
+    public Response<List<Product>> research(){
+        return new Response<List<Product>>(productService.researchProduct());
     }
 
 }
