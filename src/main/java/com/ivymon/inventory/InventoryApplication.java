@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@MapperScan(basePackages = {Const.MAPPER_PACKAGE}, sqlSessionFactoryRef="sqlSessionFactory")
-@PropertySource(value = {"application.yaml", "application-${spring.profiles.active}.yaml"})
+@MapperScan(basePackages = {Const.MAPPER_PACKAGE}, sqlSessionFactoryRef = "sqlSessionFactory")
+@PropertySource(value = {"classpath:application.yaml", "classpath:application-${spring.profiles.active}.yaml"})
 public class InventoryApplication {
 
     public static void main(String[] args) {
