@@ -19,8 +19,8 @@
 
 <!--        <table tableName="product" enableCountByExample="false" enableSelectByExample="false"-->
 <!--               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>-->
-        <table tableName="user" /><!--enableSelectByExample="false"
-               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>-->
+        <table tableName="goods_category" enableSelectByExample="false"
+               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>
     </context>
 </generatorConfiguration>
 
