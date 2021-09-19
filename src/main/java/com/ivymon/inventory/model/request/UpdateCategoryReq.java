@@ -1,6 +1,6 @@
 package com.ivymon.inventory.model.request;
 
-public class NewCategoryReq {
+public class UpdateCategoryReq {
     private String categoryName;
 
     public String getCategoryName() {
@@ -10,4 +10,17 @@ public class NewCategoryReq {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+    private Integer categorySeq;
+    public Integer getCategorySeq() {
+        return categorySeq;
+    }
+
+    public void setCategorySeq(Integer categorySeq) {
+        this.categorySeq = categorySeq;
+    }
+
+
+
+
+
 }
