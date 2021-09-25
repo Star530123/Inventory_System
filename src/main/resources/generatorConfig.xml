@@ -19,7 +19,7 @@
 
 <!--        <table tableName="product" enableCountByExample="false" enableSelectByExample="false"-->
 <!--               enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>-->
-        <table tableName="goods_category" enableSelectByExample="false"
+        <table tableName="goods_item" enableSelectByExample="false"
                enableDeleteByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>
     </context>
 </generatorConfiguration>
