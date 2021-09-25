@@ -8,7 +8,8 @@ import com.ivymon.inventory.model.response.NewCategoryRes;
 import com.ivymon.inventory.model.response.UpdateCategoryRes;
 
 public interface IGoodsCategoryService {
-    public NewCategoryRes createCategory (NewCategoryReq newCategoryReq);
+    public NewCategoryRes newCategory (NewCategoryReq newCategoryReq);
     public DeleteCategoryRes deleteCategory (DeleteCategoryReq deleteCategoryReq);
     public UpdateCategoryRes updateCategory(UpdateCategoryReq updateCategoryReq);
+//    public ResearchCategoryRes researchCategory(ResearchCategoryReq researchCategoryReq);
 }
