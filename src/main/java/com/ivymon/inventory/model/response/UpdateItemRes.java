@@ -1,8 +1,6 @@
 package com.ivymon.inventory.model.response;
 
-public class NewItemRes {
-
-    private  Integer itemSeq;
+public class UpdateItemRes {
     public Integer getItemSeq() {
         return itemSeq;
     }
@@ -10,6 +8,5 @@ public class NewItemRes {
     public void setItemSeq(Integer itemSeq) {
         this.itemSeq = itemSeq;
     }
-
-
+    private Integer itemSeq;
 }
