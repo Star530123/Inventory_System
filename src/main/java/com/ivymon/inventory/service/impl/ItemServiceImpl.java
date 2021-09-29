@@ -29,7 +29,7 @@ public class ItemServiceImpl implements IGoodsItemService {
     }
     public DeleteItemRes deleteItem(DeleteItemReq deleteItemReq){
         goodsItemMapper.deleteByPrimaryKey(deleteItemReq.getItemSeq());
-        return new DeleteItemRes();
+        return  new DeleteItemRes(true);
     }
     public UpdateItemRes updateItem(UpdateItemReq updateItemReq){
         GoodsItem goodsItem = new GoodsItem();

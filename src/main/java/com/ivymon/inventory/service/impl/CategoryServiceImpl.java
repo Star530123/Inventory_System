@@ -28,7 +28,8 @@ public class CategoryServiceImpl implements IGoodsCategoryService {
     }
     public DeleteCategoryRes deleteCategory (DeleteCategoryReq deleteCategoryReq){
         goodsCategoryMapper.deleteByPrimaryKey(deleteCategoryReq.getCategorySeq());
-        return  new DeleteCategoryRes();
+
+        return new DeleteCategoryRes(true);
 
     }
     public UpdateCategoryRes updateCategory(UpdateCategoryReq updateCategoryReq){
