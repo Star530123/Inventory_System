@@ -1,9 +1,8 @@
 package com.ivymon.inventory.model;
 
-import com.ivymon.inventory.constant.Const;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ivymon.inventory.constant.RtnConst;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @ApiModel
@@ -12,6 +11,8 @@ public class Response<T> {
     private String rtnCode;
     @Schema(description = "回傳訊息")
     private String rtnMsg;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private T result;
 
     public Response() {

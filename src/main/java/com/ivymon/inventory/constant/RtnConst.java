@@ -2,6 +2,7 @@ package com.ivymon.inventory.constant;
 
 public enum RtnConst {
     SUCCESS("0000","成功"),
+    REQ_ACCOUNT_ERROR("1001","req account不等於A"),
     UNKNOWN_FAIL("9999", "系統錯誤");
 
 
