@@ -140,4 +140,6 @@
     set CATEGORY_NAME = #{categoryName,jdbcType=VARCHAR}
     where CATEGORY_SEQ = #{categorySeq,jdbcType=INTEGER}
   </update>
+
+
 </mapper>

@@ -26,26 +26,33 @@ public class CategoryController {
     @Qualifier("CategoryServiceImpl")
     private IGoodsCategoryService categoryService;
 
-    //newCategoryName
+    //newCategory
     @RequestMapping(value = "newCategory",method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "新增種類")
-    public Response<NewCategoryRes> createCategory(@RequestBody Request<NewCategoryReq> request){
-        return new Response<NewCategoryRes>(categoryService.createCategory(request.getBody()));
+    @Operation(description = "新增類別")
+    public Response<NewCategoryRes> newCategory(@RequestBody Request<NewCategoryReq> request){
+        return new Response<NewCategoryRes>(categoryService.newCategory(request.getBody()));
     }
 //deleteCategory
     @RequestMapping(value = "deleteCategory",method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "刪除種類")
+    @Operation(description = "刪除類別")
     public Response<DeleteCategoryRes> deleteCategory(@RequestBody Request<DeleteCategoryReq> request){
         return new Response<DeleteCategoryRes>(categoryService.deleteCategory(request.getBody()));
     }
     //updateCategory
     @RequestMapping(value = "updateCategory",method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "更新種類")
+    @Operation(description = "更新類別")
     public Response<UpdateCategoryRes> updateCategory(@RequestBody Request<UpdateCategoryReq> request){
         return new Response<UpdateCategoryRes>(categoryService.updateCategory(request.getBody()));
     }
+//    //researchCategory
+//    @RequestMapping(value = "researchCategory",method = {RequestMethod.POST})
+//    @ResponseBody
+//    @Operation(description = "查詢類別")
+//    public Response<ResearchCategoryRes> researchCategory(@RequestBody Request<ResearchCategoryReq> request){
+//        return new Response<ResearchCategoryRes>(categoryService.researchCategory(request.getBody()));
+//    }
 
 }

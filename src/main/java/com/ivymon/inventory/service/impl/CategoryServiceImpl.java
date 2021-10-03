@@ -17,9 +17,8 @@ public class CategoryServiceImpl implements IGoodsCategoryService {
     @Autowired
     private GoodsCategoryMapper goodsCategoryMapper;
     @Override
-    public NewCategoryRes createCategory(NewCategoryReq newCategoryReq){
+    public NewCategoryRes newCategory(NewCategoryReq newCategoryReq){
         GoodsCategory goodsCategory = new GoodsCategory();
-
         goodsCategory.setCategoryName(newCategoryReq.getCategoryName());
         goodsCategoryMapper.insertSelective(goodsCategory);
         NewCategoryRes newCategoryRes = new NewCategoryRes();
@@ -29,7 +28,8 @@ public class CategoryServiceImpl implements IGoodsCategoryService {
     }
     public DeleteCategoryRes deleteCategory (DeleteCategoryReq deleteCategoryReq){
         goodsCategoryMapper.deleteByPrimaryKey(deleteCategoryReq.getCategorySeq());
-        return  new DeleteCategoryRes();
+
+        return new DeleteCategoryRes(true);
 
     }
     public UpdateCategoryRes updateCategory(UpdateCategoryReq updateCategoryReq){
@@ -41,4 +41,15 @@ public class CategoryServiceImpl implements IGoodsCategoryService {
         updateCategoryRes.setCategorySeq(goodsCategory.getCategorySeq());
         return updateCategoryRes;
     }
+
+//    public ResearchCategoryRes researchCategory(ResearchCategoryReq researchCategoryReq){
+//        GoodsCategory goodsCategory = new GoodsCategory();
+//        goodsCategory.setCategoryName(researchCategoryReq.getCategoryName());
+//        goodsCategory.setCategorySeq(researchCategoryReq.getCategorySeq());
+//        goodsCategoryMapper.selectByPrimaryKey(goodsCategory.getCategorySeq());
+//        ResearchCategoryRes researchCategoryRes = new ResearchCategoryRes();
+//        researchCategoryReq.setCategoryName(goodsCategory.getCategoryName());
+//        researchCategoryReq.setCategorySeq(goodsCategory.getCategorySeq());
+//        return researchCategoryRes;
+//    }
 }

@@ -1,17 +1,15 @@
 package com.ivymon.inventory.model.response;
 
-public class DeleteCategoryRes {
-    public DeleteCategoryRes(){
+public class DeleteItemRes {
+    public DeleteItemRes(){
     }
-    public DeleteCategoryRes(boolean isSuccess){
+    public DeleteItemRes(boolean isSuccess){
         this.isSuccess = isSuccess;
-
     }
-
     private boolean isSuccess;
 
-        public boolean getIsSuccess() {
-            return isSuccess;
+    public boolean getIsSuccess() {
+        return isSuccess;
     }
 
     public void setSuccess(boolean success) {
