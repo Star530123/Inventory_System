@@ -175,4 +175,9 @@
       CREAT_TIME = #{creatTime,jdbcType=DATE}
     where MANU_SEQ = #{manuSeq,jdbcType=INTEGER}
   </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select *
+    from manufacture
+
+  </select>
 </mapper>
