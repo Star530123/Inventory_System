@@ -2,7 +2,9 @@ package com.ivymon.inventory.controller;
 
 import com.ivymon.inventory.model.Request;
 import com.ivymon.inventory.model.Response;
+import com.ivymon.inventory.model.request.CategoryListReq;
 import com.ivymon.inventory.model.request.ManuListReq;
+import com.ivymon.inventory.model.response.CategoryListRes;
 import com.ivymon.inventory.model.response.ManuListRes;
 import com.ivymon.inventory.service.ICommonService;
 import io.swagger.annotations.Api;
@@ -29,6 +31,13 @@ public class CommonController {
     @Operation(description = "manuList")
     public Response<List<ManuListRes>> manuList(@RequestBody Request<ManuListReq> request){
         return new Response<>(commonService.manuList(request.getBody()));
+    }
+    //categoryList
+    @RequestMapping(value = "categoryList", method = {RequestMethod.POST})
+    @ResponseBody
+    @Operation(description = "categoryList")
+    public Response<List<CategoryListRes>> categoryList(@RequestBody Request<CategoryListReq> request){
+        return new Response<>(commonService.categoryList(request.getBody()));
     }
 
 }
