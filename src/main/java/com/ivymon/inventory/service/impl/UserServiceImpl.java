@@ -24,7 +24,7 @@ public class UserServiceImpl implements IUserService {
         String ptPassword = "[a-zA-Z]+[0-9]+|[0-9]+[a-zA-Z]+";
         String ptEmail = "[a-zA-Z0-9._]+@([a-zA-Z0-9_]+.[a-zA-Z0-9_]+)+";
         User user = new User();
-        if (newUserReq.getUserGroup() == null) {
+        if (newUserReq.getUserGroup().isEmpty()) {
             user.setUserGroup("general");
         }
         else {
