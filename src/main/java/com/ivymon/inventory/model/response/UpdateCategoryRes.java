@@ -2,6 +2,7 @@ package com.ivymon.inventory.model.response;
 
 public class UpdateCategoryRes {
     private Integer categorySeq;
+
     public Integer getCategorySeq() {
         return categorySeq;
     }

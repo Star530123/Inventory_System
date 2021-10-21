@@ -8,5 +8,6 @@ public class UpdateItemRes {
     public void setItemSeq(Integer itemSeq) {
         this.itemSeq = itemSeq;
     }
+
     private Integer itemSeq;
 }
