@@ -1,12 +1,14 @@
 package com.ivymon.inventory.model.response;
 
 public class DeleteManuRes {
-    public DeleteManuRes(){
+    public DeleteManuRes() {
 
     }
-    public DeleteManuRes(boolean isSuccess){
+
+    public DeleteManuRes(boolean isSuccess) {
         this.isSuccess = isSuccess;
     }
+
     private boolean isSuccess;
 
     public boolean getIsSuccess() {

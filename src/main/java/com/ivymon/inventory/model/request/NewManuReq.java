@@ -22,7 +22,7 @@ public class NewManuReq {
         this.nation = nation;
     }
 
-    private  String currency;
+    private String currency;
 
     public String getCurrency() {
         return currency;

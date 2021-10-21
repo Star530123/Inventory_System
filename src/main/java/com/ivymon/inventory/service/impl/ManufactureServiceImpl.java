@@ -17,8 +17,9 @@ import java.util.Date;
 public class ManufactureServiceImpl implements IManufactureService {
     @Autowired
     private ManufactureMapper manufactureMapper;
+
     @Override
-    public NewManuRes newManufacture (NewManuReq newManuReq){
+    public NewManuRes newManufacture(NewManuReq newManuReq) {
         Manufacture manufacture = new Manufacture();
         manufacture.setManuName(newManuReq.getManuName());
         manufacture.setCurrency(newManuReq.getCurrency());
@@ -29,7 +30,8 @@ public class ManufactureServiceImpl implements IManufactureService {
         newManuRes.setManuSeq(manufacture.getManuSeq());
         return newManuRes;
     }
-    public DeleteManuRes deleteManufacture(DeleteManuReq deleteManuReq){
+
+    public DeleteManuRes deleteManufacture(DeleteManuReq deleteManuReq) {
         manufactureMapper.deleteByPrimaryKey(deleteManuReq.getManuSeq());
         return new DeleteManuRes(true);
 

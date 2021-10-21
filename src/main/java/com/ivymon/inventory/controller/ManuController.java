@@ -18,23 +18,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@Api(tags = "manufacture")
-public class ManuController{
+@Api(tags = "manufacturer")
+@RequestMapping(value = "/api/manu")
+public class ManuController {
     @Autowired
     @Qualifier("ManufactureServiceImpl")
     private IManufactureService manufactureService;
-    //newManufacture
-    @RequestMapping(value = "newManufacture", method = {RequestMethod.POST})
+
+    @RequestMapping(value = "/newManufacturer", method = {RequestMethod.POST})
     @ResponseBody
     @Operation(description = "新增廠商")
-    public Response<NewManuRes> newManu(@RequestBody Request<NewManuReq> request){
-        return new Response<NewManuRes>(manufactureService.newManufacture(request.getBody()));
+    public Response<NewManuRes> newManu(@RequestBody Request<NewManuReq> request) {
+        return new Response<>(manufactureService.newManufacture(request.getBody()));
     }
-    //deleteManufacture
-    @RequestMapping(value = "deleteManufacture", method = {RequestMethod.POST})
+
+    @RequestMapping(value = "/deleteManufacturer", method = {RequestMethod.POST})
     @ResponseBody
     @Operation(description = "刪除廠商")
-    public Response<DeleteManuRes> deleteManu(@RequestBody Request<DeleteManuReq> request){
-        return new Response<DeleteManuRes>(manufactureService.deleteManufacture(request.getBody()));
+    public Response<DeleteManuRes> deleteManu(@RequestBody Request<DeleteManuReq> request) {
+        return new Response<>(manufactureService.deleteManufacture(request.getBody()));
     }
 }

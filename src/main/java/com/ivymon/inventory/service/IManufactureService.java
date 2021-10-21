@@ -6,6 +6,7 @@ import com.ivymon.inventory.model.response.DeleteManuRes;
 import com.ivymon.inventory.model.response.NewManuRes;
 
 public interface IManufactureService {
-    public NewManuRes newManufacture (NewManuReq newManuReq);
+    public NewManuRes newManufacture(NewManuReq newManuReq);
+
     public DeleteManuRes deleteManufacture(DeleteManuReq deleteManuReq);
 }

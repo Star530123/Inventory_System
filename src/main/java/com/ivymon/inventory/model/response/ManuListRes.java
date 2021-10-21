@@ -22,7 +22,6 @@ public class ManuListRes {
     }
 
 
-
     public Integer getManuSeq() {
 
         return manuSeq;
