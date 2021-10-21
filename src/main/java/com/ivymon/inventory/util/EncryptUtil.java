@@ -1,5 +1,7 @@
 package com.ivymon.inventory.util;
 
+import com.ivymon.inventory.constant.RtnConst;
+import com.ivymon.inventory.model.InventoryException;
 import org.apache.tomcat.util.buf.HexUtils;
 
 import java.security.MessageDigest;
@@ -14,8 +16,12 @@ public class EncryptUtil {
      * @return sha256結果
      * @throws NoSuchAlgorithmException
      */
-    public static String sha256(String target) throws NoSuchAlgorithmException {
-        return HexUtils.toHexString(MessageDigest.getInstance("SHA-256")
-                .digest(target.getBytes()));
+    public static String sha256(String target) {
+        try {
+            return HexUtils.toHexString(MessageDigest.getInstance("SHA-256")
+                    .digest(target.getBytes()));
+        } catch (NoSuchAlgorithmException e) {
+            throw new InventoryException(RtnConst.UNKNOWN_FAIL);
+        }
     }
 }

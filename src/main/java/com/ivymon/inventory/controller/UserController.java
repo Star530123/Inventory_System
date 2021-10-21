@@ -2,7 +2,9 @@ package com.ivymon.inventory.controller;
 
 import com.ivymon.inventory.model.Request;
 import com.ivymon.inventory.model.Response;
+import com.ivymon.inventory.model.request.LoginReq;
 import com.ivymon.inventory.model.request.NewUserReq;
+import com.ivymon.inventory.model.response.LoginRes;
 import com.ivymon.inventory.model.response.NewUserRes;
 import com.ivymon.inventory.service.IUserService;
 import io.swagger.annotations.Api;
@@ -17,16 +19,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @Api(tags = "USER")
+@RequestMapping(value = "/api/user")
 public class UserController {
     @Autowired
     @Qualifier("UserServiceImpl")
     private IUserService userService;
-    //newUser
-    @RequestMapping(value = "newUser", method = {RequestMethod.POST})
+
+    @RequestMapping(value = "/newUser", method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "new")
-    public Response<NewUserRes> newUser(@RequestBody Request<NewUserReq> request){
-        return new Response<NewUserRes>(userService.newUser(request.getBody()));
+    @Operation(description = "新增使用者")
+    public Response<NewUserRes> newUser(@RequestBody Request<NewUserReq> request) {
+        return new Response<>(userService.newUser(request.getBody()));
     }
+
+    @RequestMapping(value = "/login", method = {RequestMethod.POST})
+    @ResponseBody
+    @Operation(description = "使用者登入")
+    public Response<LoginRes> login(@RequestBody Request<LoginReq> request) {
+        return new Response<>(userService.login(request.getBody()));
+
+
+    }
+
 
 }

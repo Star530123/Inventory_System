@@ -316,5 +316,4 @@
     where ACCOUNT = #{account,jdbcType=VARCHAR}
   </update>
 
-
 </mapper>
