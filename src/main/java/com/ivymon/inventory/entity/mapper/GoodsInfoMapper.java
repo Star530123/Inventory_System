@@ -3,7 +3,7 @@ package com.ivymon.inventory.entity.mapper;
 import com.ivymon.inventory.entity.GoodInfoVo;
 import com.ivymon.inventory.entity.GoodsInfo;
 import com.ivymon.inventory.entity.GoodsInfoExample;
-import com.ivymon.inventory.model.request.QueryGoodsReq;
+import com.ivymon.inventory.entity.QueryGoods;
 
 import java.util.List;
 
@@ -63,5 +63,5 @@ public interface GoodsInfoMapper {
      * @mbg.generated Wed Oct 20 10:06:08 CST 2021
      */
     int updateByPrimaryKey(GoodsInfo record);
-    List<GoodInfoVo> selectByGoodNamelike(QueryGoodsReq queryGoodsReq);
+    List<GoodInfoVo> selectByGoodNamelike(QueryGoods queryGoods);
 }

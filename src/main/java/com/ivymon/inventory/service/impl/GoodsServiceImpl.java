@@ -1,6 +1,8 @@
 package com.ivymon.inventory.service.impl;
 
+import com.ivymon.inventory.entity.GoodInfoVo;
 import com.ivymon.inventory.entity.GoodsInfo;
+import com.ivymon.inventory.entity.QueryGoods;
 import com.ivymon.inventory.entity.mapper.GoodsInfoMapper;
 import com.ivymon.inventory.model.request.DeleteGoodsReq;
 import com.ivymon.inventory.model.request.NewGoodsReq;
@@ -11,6 +13,9 @@ import com.ivymon.inventory.model.response.QueryGoodsRes;
 import com.ivymon.inventory.service.IGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("GoodsServiceImpl")
 public class GoodsServiceImpl implements IGoodsService {
@@ -52,12 +57,29 @@ public class GoodsServiceImpl implements IGoodsService {
     }
 
     @Override
-    public QueryGoodsRes queryGoods(QueryGoodsReq queryGoodsReq){
-        goodsInfoMapper.
+    public List<QueryGoodsRes> queryGoods(QueryGoodsReq queryGoodsReq){
+        List<QueryGoodsRes> queryGoodsResList = new ArrayList<>();
+        List<GoodInfoVo> goodInfoVoList = goodsInfoMapper.selectByGoodNamelike(getQueryGoods(queryGoodsReq));
+        for (GoodInfoVo goodInfoVo:  goodInfoVoList){
+            QueryGoodsRes queryGoodsRes = new QueryGoodsRes();
+            queryGoodsRes.setGoodsSeq(goodInfoVo.getGoodsSeq());
+            queryGoodsRes.setGoodsName(goodInfoVo.getGoodsName());
+            queryGoodsRes.setCategorySeq(goodInfoVo.getCategorySeq());
+            queryGoodsRes.setItemSeq(goodInfoVo.getItemSeq());
+            queryGoodsRes.setManuSeq(goodInfoVo.getManuSeq());
+            queryGoodsRes.setTwdUnitPrice(goodInfoVo.getTwdUnitPrice());
+            queryGoodsRes.setAmount(goodInfoVo.getAmount());
+            queryGoodsRes.setPurchaseTime(goodInfoVo.getPurchaseTime());
+            queryGoodsResList.add(queryGoodsRes);
+        }
+        return queryGoodsResList;
+    }
 
-
-
-        QueryGoodsRes queryGoodsRes = new QueryGoodsRes();
-        return queryGoodsRes;
+    private QueryGoods getQueryGoods(QueryGoodsReq queryGoodsReq) {
+        QueryGoods queryGoods = new QueryGoods();
+        queryGoods.setGoodsNameLike(queryGoodsReq.getGoodsNameLike());
+        queryGoods.setItemSeq(queryGoodsReq.getItemSeq());
+        queryGoods.setCategorySeq(queryGoodsReq.getCategorySeq());
+        return queryGoods;
     }
 }

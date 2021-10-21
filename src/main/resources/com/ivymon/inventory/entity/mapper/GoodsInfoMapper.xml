@@ -257,10 +257,11 @@
       SHIPPING_FEE = #{shippingFee,jdbcType=INTEGER}
     where GOODS_SEQ = #{goodsSeq,jdbcType=INTEGER}
   </update>
-  <select id="selectByGoodNamelike" resultMap="GoodsInfoVotMap">
+  <select id="selectByGoodNamelike" parameterType="com.ivymon.inventory.entity.QueryGoods" resultMap="GoodsInfoVotMap">
+    <bind name="goodsNameLikeStr" value="'%'+ goodsNameLike +'%'"></bind>
     select GOODS_SEQ , GOODS_NAME ,gi.category_seq, g.ITEM_SEQ , TWD_UNIT_PRICE , AMOUNT , MANU_SEQ , PURCHASE_TIME
     from goods_info g join goods_item gi
     on g.ITEM_SEQ= gi.ITEM_SEQ
-    where GOODS_NAME like '%#{queryGoodsReq.goodsNameLike,jdbcType=STRING}%'and g.ITEM_SEQ = #{queryGoodsReq.itemSeq,jdbcType=INTEGER} and  category_seq = #{queryGoodsReq.categorySeq,jdbcType=INTEGER};
+    where GOODS_NAME like #{goodsNameLikeStr} and g.ITEM_SEQ = #{itemSeq,jdbcType=INTEGER} and  category_seq = #{categorySeq,jdbcType=INTEGER};
   </select>
 </mapper>
