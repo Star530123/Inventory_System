@@ -10,7 +10,6 @@ public class NewItemReq {
     }
 
 
-
     public Integer getCategorySeq() {
         return categorySeq;
     }

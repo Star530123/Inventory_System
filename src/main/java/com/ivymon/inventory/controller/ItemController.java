@@ -21,30 +21,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @Api(tags = "item")
+@RequestMapping(value = "/api/item")
 public class ItemController {
     @Autowired
     @Qualifier("ItemServiceImpl")
     private IGoodsItemService itemService;
 
-    //newItem
-    @RequestMapping(value = "newItem", method = {RequestMethod.POST})
+    @RequestMapping(value = "/newItem", method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "新增項目")
-    public Response<NewItemRes> newItem(@RequestBody Request<NewItemReq> request){
-        return new Response<NewItemRes>(itemService.newItem(request.getBody()));
+    @Operation(description = "新增貨物項目")
+    public Response<NewItemRes> newItem(@RequestBody Request<NewItemReq> request) {
+        return new Response<>(itemService.newItem(request.getBody()));
     }
-    //itemDelete
-    @RequestMapping(value = "deleteItem", method = {RequestMethod.POST})
+
+    @RequestMapping(value = "/deleteItem", method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "刪除項目")
-    public Response<DeleteItemRes> deleteItem(@RequestBody Request<DeleteItemReq> request){
-        return new Response<DeleteItemRes>(itemService.deleteItem(request.getBody()));
+    @Operation(description = "刪除貨物項目")
+    public Response<DeleteItemRes> deleteItem(@RequestBody Request<DeleteItemReq> request) {
+        return new Response<>(itemService.deleteItem(request.getBody()));
     }
-    //itemUpdate
-    @RequestMapping(value = "updateItem", method = {RequestMethod.POST})
+
+    @RequestMapping(value = "/updateItem", method = {RequestMethod.POST})
     @ResponseBody
-    @Operation(description = "新增項目")
-    public Response<UpdateItemRes> updateItem(@RequestBody Request<UpdateItemReq> request){
-        return new Response<UpdateItemRes>(itemService.updateItem(request.getBody()));
+    @Operation(description = "更新貨物項目")
+    public Response<UpdateItemRes> updateItem(@RequestBody Request<UpdateItemReq> request) {
+        return new Response<>(itemService.updateItem(request.getBody()));
     }
 }

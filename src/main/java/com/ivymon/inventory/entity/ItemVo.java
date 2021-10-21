@@ -1,6 +1,11 @@
-package com.ivymon.inventory.model.request;
+package com.ivymon.inventory.entity;
 
-public class UpdateItemReq {
+public class ItemVo {
+    private Integer itemSeq;
+    private String itemName;
+    private Integer categorySeq;
+    private String categoryName;
+
     public Integer getItemSeq() {
         return itemSeq;
     }
@@ -25,7 +30,11 @@ public class UpdateItemReq {
         this.categorySeq = categorySeq;
     }
 
-    private Integer itemSeq;
-    private String itemName;
-    private Integer categorySeq;
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }

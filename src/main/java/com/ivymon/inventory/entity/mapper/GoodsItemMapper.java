@@ -2,6 +2,10 @@ package com.ivymon.inventory.entity.mapper;
 
 import com.ivymon.inventory.entity.GoodsItem;
 import com.ivymon.inventory.entity.GoodsItemExample;
+import com.ivymon.inventory.entity.ItemVo;
+import com.ivymon.inventory.model.response.ItemListRes;
+
+import java.util.List;
 
 public interface GoodsItemMapper {
     /**
@@ -59,4 +63,11 @@ public interface GoodsItemMapper {
      * @mbg.generated Sat Sep 25 11:50:45 CST 2021
      */
     int updateByPrimaryKey(GoodsItem record);
+
+    List<ItemListRes> selectAll();
+
+    List<ItemVo>selectByCategorySeq(Integer categorySeq);
+    List<ItemVo> selectAllItemVo();
+
+
 }
