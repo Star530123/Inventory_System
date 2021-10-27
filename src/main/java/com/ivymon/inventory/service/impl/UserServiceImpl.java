@@ -68,7 +68,8 @@ public class UserServiceImpl implements IUserService {
         if (user == null) {
             throw new InventoryException(RtnConst.LOGIN_ACCOUNT_ERROR);
         }
-        if (loginReq.getPassword().equals(user.getPassword())) {
+        String pwEncrypt = EncryptUtil.sha256(loginReq.getPassword());
+        if (pwEncrypt.equals(user.getPassword())) {
             LoginRes loginRes = new LoginRes();
             loginRes.setUserName(user.getUsername());
             loginRes.setAccount(user.getAccount());
