@@ -27,7 +27,7 @@ public class UserServiceImpl implements IUserService {
         String ptEmail = "[a-zA-Z0-9._]+@([a-zA-Z0-9_]+.[a-zA-Z0-9_]+)+";
         User user = new User();
         //setUserGroup to user
-        if (newUserReq.getUserGroup().isEmpty()) {
+        if (newUserReq.getUserGroup() == null) {
             user.setUserGroup("general");
         } else {
             user.setUserGroup(newUserReq.getUserGroup());
