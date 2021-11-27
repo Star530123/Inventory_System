@@ -1,5 +1,7 @@
 package com.ivymon.inventory.model.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class NewGoodsReq {
@@ -11,6 +13,7 @@ public class NewGoodsReq {
     private Integer twdUnitPrice;
     private Integer currencyUnitPrice;
     private Integer manuSeq;
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private Date purchaseTime;
     private Integer tariff;
     private Integer shippingFee;
